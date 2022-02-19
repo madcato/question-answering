@@ -1,6 +1,9 @@
 from re import L
+from tkinter import SEPARATOR
 import pandas as pd
 import gzip
+
+SEPARATOR_TOKEN = '<SEP>'
 
 def parse(path):
   g = gzip.open(path, 'rb')
