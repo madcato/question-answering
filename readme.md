@@ -85,6 +85,17 @@ I must investigate four ways to solve this problem:
 3. Fine-tune a pre-trained language model, to generate text.
 4. Find a new way to fine-tune the language model.
 
+### 1. Train a lenguage model from scratch, to generate text.
+First install requirements:
+
+    $ pip3 install -r ./transformers/examples/pytorch/language-modeling/requirements.txt
+
+Also, do the step **Download and prepare data**.
+
+Then run training:
+
+    $ ./train_gpt2_model.sh
+
 ## ToDo
 - [ ] Encontrar cómo guardar y restaurar modelos reentrenados.
 - [X] Por lo que veo en el documento de custom dataset, lo que tengo que hacer es crear mi propio código que cargue los datos.
