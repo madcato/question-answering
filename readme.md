@@ -36,11 +36,12 @@ model.resize_token_embeddings(len(tokenizer))
 ## Grocery and Gourmet Food
 - [Source of data](http://jmcauley.ucsd.edu/data/amazon/qa/)
 
-## Download and prepare data
+### Download and prepare data
 
 1. Download: `$ wget http://jmcauley.ucsd.edu/data/amazon/qa/qa_Grocery_and_Gourmet_Food.json.gz`
+2. Prepare train and verify data `$ python3 prepare_GG_data.py`
 
-### qa_Grocery_and_Gourmet_Food Data format
+#### qa_Grocery_and_Gourmet_Food Data format
 Each line has a json object with the following properties:
 - questionType
 - asin
@@ -49,7 +50,7 @@ Each line has a json object with the following properties:
 - question 
 - answer
 
-#### Sample code to load files
+##### Sample code to load files
 ```python
 import pandas as pd
 import gzip
@@ -76,6 +77,13 @@ df = getDF('qa_Video_Games.json.gz')
 
 - [hiiamsid/est5-base](https://huggingface.co/hiiamsid/est5-base?text=Tengo+un+problema+con+el+sistema+de+archivos%2C+parace+que+he+perdido+los+persmisos+para+acceder+a+los+ficheros+A3+y+A4.+¿Puedo+hacer+una+copia+de+seguridad+de+los+ficheros+A3+y+A4%3F)
 - [mrm8488/spanish-t5-small-sqac-for-qa](https://huggingface.co/mrm8488/spanish-t5-small-sqac-for-qa?text=question%3A+¿Cuál+es+el+nombre+que+se+le+da+a+la+unidad+morfológica+y+funcional+de+los+seres+vivos%3F+context%3A+La+célula+%28del+lat%C3%ADn+cellula%2C+diminutivo+de+cella%2C+‘celda’%29+es+la+unidad+morfológica+y+funcional+de+todo+ser+vivo.+De+hecho%2C+la+célula+es+el+elemento+de+menor+tamaño+que+puede+considerarse+vivo.%E2%80%8B+De+este+modo%2C+puede+clasificarse+a+los+organismos+vivos+según+el+número+de+células+que+posean%3A+si+solo+tienen+una%2C+se+les+denomina+unicelulares+%28como+pueden+ser+los+protozoos+o+las+bacterias%2C+organismos+microscópicos%29%3B+si+poseen+más%2C+se+les+llama+pluricelulares.+En+estos+últimos+el+número+de+células+es+variable%3A+de+unos+pocos+cientos%2C+como+en+algunos+nematodos%2C+a+cientos+de+billones+%281014%29%2C+como+en+el+caso+del+ser+humano.+Las+células+suelen+poseer+un+tamaño+de+10+µm+y+una+masa+de+1+ng%2C+si+bien+existen+células+mucho+mayores.)
+
+## Investigation ways
+I must investigate four ways to solve this problem:
+1. Train a lenguage model from scratch, to generate text.
+2. Use a pre-trained language model retrained, to generate text. Like GPT-2.
+3. Fine-tune a pre-trained language model, to generate text.
+4. Find a new way to fine-tune the language model.
 
 ## ToDo
 - [ ] Encontrar cómo guardar y restaurar modelos reentrenados.

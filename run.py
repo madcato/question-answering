@@ -1,27 +1,4 @@
-from re import L
-from tkinter import SEPARATOR
-import pandas as pd
-import gzip
-
-SEPARATOR_TOKEN = '<SEP>'
-
-def parse(path):
-  g = gzip.open(path, 'rb')
-  for l in g:
-    yield eval(l)
-
-def getDF(path):
-  i = 0
-  df = {}
-  for d in parse(path):
-    df[i] = d
-    i += 1
-  return pd.DataFrame.from_dict(df, orient='index')
-
-def split_data(df):
-    questions =  df['question'].tolist()
-    answers = df['answer'].tolist()
-    return questions, answers
+from util.text import *
 
 df = getDF('qa_Grocery_and_Gourmet_Food.json.gz')
 print("DataFrame contents:");

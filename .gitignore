@@ -1,2 +1,4 @@
 qa_Grocery_and_Gourmet_Food.json.gz
 __pycache__
+train_list.txt
+val_list.txt
