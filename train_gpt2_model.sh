@@ -1,11 +1,17 @@
 export TRAIN_FILE=train_list.txt
 export VAL_FILE=val_list.txt
 
-python3 ./transformers/examples/pytorch/language-modeling/run_clm.py \
-    --output_dir=output \
-    --model_type=gpt2 \
-    --model_name_or_path=gpt2 \
+# Train GPT2 model from scratch with custom train files
+CUDA_LAUNCH_BLOCKING=1 python3 ./transformers/examples/pytorch/language-modeling/run_clm.py \
+    --model_type gpt2 \
+    --tokenizer_name gpt2 \
+    --train_file $TRAIN_FILE \
+    --validation_file=$VAL_FILE \
+    --per_device_train_batch_size 8 \
+    --per_device_eval_batch_size 8 \
     --do_train \
-    --train_file=$TRAIN_FILE \
     --do_eval \
-    --validation_file=$VAL_FILE
+    --output_dir output \
+    --keep_linebreaks False \
+    --block_size 512 \
+    --config_overrides "n_embd=32,n_head=4,n_layer=3,n_positions=512"

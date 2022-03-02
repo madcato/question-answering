@@ -22,6 +22,7 @@ Actually, for solving a **question-answering** problem like the email answering,
 - [train transformer with pytorch](https://github.com/huggingface/transformers/tree/master/examples/pytorch/text-generation)
 - [Finetune in native pytorch](https://huggingface.co/docs/transformers/master/en/training#finetune-in-native-pytorc)]
 - [Preprocessing data](https://huggingface.co/docs/transformers/preprocessing)
+- [GPT2Config param doc](https://huggingface.co/docs/transformers/model_doc/gpt2#transformers.GPT2Config)
 
 ## Guide 1 to retrain a GPT-2 model with PyTorch
 - [Fine-tuning GPT2 for Text Generation Using Pytorch](https://towardsdatascience.com/fine-tuning-gpt2-for-text-generation-using-pytorch-2ee61a4f1ba7)
