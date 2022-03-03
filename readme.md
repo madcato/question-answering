@@ -23,6 +23,7 @@ Actually, for solving a **question-answering** problem like the email answering,
 - [Finetune in native pytorch](https://huggingface.co/docs/transformers/master/en/training#finetune-in-native-pytorc)]
 - [Preprocessing data](https://huggingface.co/docs/transformers/preprocessing)
 - [GPT2Config param doc](https://huggingface.co/docs/transformers/model_doc/gpt2#transformers.GPT2Config)
+- [transformers.ConversationalPipeline](https://huggingface.co/docs/transformers/v4.17.0/en/main_classes/pipelines#transformers.ConversationalPipeline)
 
 ## Guide 1 to retrain a GPT-2 model with PyTorch
 - [Fine-tuning GPT2 for Text Generation Using Pytorch](https://towardsdatascience.com/fine-tuning-gpt2-for-text-generation-using-pytorch-2ee61a4f1ba7)
@@ -83,7 +84,7 @@ df = getDF('qa_Video_Games.json.gz')
 I must investigate four ways to solve this problem:
 1. Train a lenguage model from scratch, to generate text.
 2. Use a pre-trained language model retrained, to generate text. Like GPT-2.
-3. Fine-tune a pre-trained language model, to generate text.
+3. Fine-tune a pre-trained language model, to generate text, by doing a "conversational" tasks.
 4. Find a new way to fine-tune the language model.
 
 ### 1. Train a lenguage model from scratch, to generate text.
@@ -119,6 +120,14 @@ Then run training:
 After training is done, do inference:
 
     $ python3 ./train_gpt2_from_pretrained/inference_gpt2_model.py
+
+#### Results
+
+Training was fast, but i could not solve inference, because the script launch an exception that I could no solve.
+
+### 3. Fine-tune a pre-trained language model, to generate text, by doing a "conversational" tasks
+
+
 
 ## ToDo
 - [ ] Encontrar cómo guardar y restaurar modelos reentrenados.
