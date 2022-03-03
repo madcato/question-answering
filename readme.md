@@ -101,6 +101,10 @@ After training is done, do inference:
 
     $ python3 ./train_gpt2_from_scratch/inference_gpt2_model.py
 
+#### Results
+
+Almost returns the same anwsers, no matter the questions: almos always returns: "I don't know"
+
 ### 2. Use a pre-trained language model retrained, to generate text. Like GPT-2.
 First install requirements:
 
