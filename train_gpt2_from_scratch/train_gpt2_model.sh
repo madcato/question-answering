@@ -15,4 +15,4 @@ CUDA_LAUNCH_BLOCKING=1 python3 ./transformers/examples/pytorch/language-modeling
     --keep_linebreaks False \
     --block_size 64 \
     --num_train_epochs 6.0 \
-    --config_overrides "n_embd=128,n_head=6,n_layer=4,n_positions=64"
+    --config_overrides "n_embd=128,n_head=8,n_layer=4,n_positions=64"
