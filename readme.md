@@ -95,7 +95,26 @@ Also, do the step **Download and prepare data**.
 
 Then run training:
 
-    $ ./train_gpt2_model.sh
+    $ ./train_gpt2_from_scratch/train_gpt2_model.sh
+
+After training is done, do inference:
+
+    $ python3 ./train_gpt2_from_scratch/inference_gpt2_model.py
+
+### 2. Use a pre-trained language model retrained, to generate text. Like GPT-2.
+First install requirements:
+
+    $ pip3 install -r ./transformers/examples/pytorch/language-modeling/requirements.txt
+
+Also, do the step **Download and prepare data**.
+
+Then run training:
+
+    $ ./train_gpt2_from_pretrained/train_gpt2_model.sh
+
+After training is done, do inference:
+
+    $ python3 ./train_gpt2_from_pretrained/inference_gpt2_model.py
 
 ## ToDo
 - [ ] Encontrar cómo guardar y restaurar modelos reentrenados.
@@ -111,3 +130,15 @@ Then run training:
 - Una posible solución sería el **Text Generation**
 - También se puede usar los transformers para el **Names Entity Recognition** (NER)
 - Esto es lo que quiero hacer: fine-tuning un GPT-2 ---->>>> https://github.com/huggingface/transformers/tree/master/examples/pytorch/language-modeling#gpt-2gpt-and-causal-language-modeling
+
+# Patches
+## token patches
+line run_clm.py:346
+
+tokenizer.add_special_tokens({
+        "eos_token": "</S>",
+        "bos_token": "<S>",
+        "unk_token": "<SEP>"
+    })
+    
+    
