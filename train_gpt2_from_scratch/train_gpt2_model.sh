@@ -7,12 +7,12 @@ CUDA_LAUNCH_BLOCKING=1 python3 ./transformers/examples/pytorch/language-modeling
     --tokenizer_name gpt2 \
     --train_file $TRAIN_FILE \
     --validation_file=$VAL_FILE \
-    --per_device_train_batch_size 64 \
-    --per_device_eval_batch_size 64 \
+    --per_device_train_batch_size 8 \
+    --per_device_eval_batch_size 8 \
     --do_train \
     --do_eval \
     --output_dir output \
     --keep_linebreaks False \
-    --block_size 64 \
-    --num_train_epochs 60.0 \
-    --config_overrides "n_embd=128,n_head=8,n_layer=4,n_positions=64"
+    --block_size 32 \
+    --num_train_epochs 32 \
+    --config_overrides "n_embd=768,n_head=12,n_layer=12,n_positions=32"

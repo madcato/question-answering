@@ -24,6 +24,7 @@ Actually, for solving a **question-answering** problem like the email answering,
 - [Preprocessing data](https://huggingface.co/docs/transformers/preprocessing)
 - [GPT2Config param doc](https://huggingface.co/docs/transformers/model_doc/gpt2#transformers.GPT2Config)
 - [transformers.ConversationalPipeline](https://huggingface.co/docs/transformers/v4.17.0/en/main_classes/pipelines#transformers.ConversationalPipeline)
+- [DialoGPT](https://github.com/microsoft/DialoGPT)
 
 ## Guide 1 to retrain a GPT-2 model with PyTorch
 - [Fine-tuning GPT2 for Text Generation Using Pytorch](https://towardsdatascience.com/fine-tuning-gpt2-for-text-generation-using-pytorch-2ee61a4f1ba7)
@@ -85,7 +86,7 @@ I must investigate four ways to solve this problem:
 1. Train a lenguage model from scratch, to generate text.
 2. Use a pre-trained language model retrained, to generate text. Like GPT-2.
 3. Fine-tune a pre-trained language model, to generate text, by doing a "conversational" tasks.
-4. Find a new way to fine-tune the language model.
+4. Find a new way to fine-tune the language model, like GPT-2 text2text generation.
 
 ### 1. Train a lenguage model from scratch, to generate text.
 First install requirements:
