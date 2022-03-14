@@ -86,7 +86,7 @@ I must investigate four ways to solve this problem:
 1. Train a lenguage model from scratch, to generate text.
 2. Use a pre-trained language model retrained, to generate text. Like GPT-2.
 3. Fine-tune a pre-trained language model, to generate text, by doing a "conversational" tasks.
-4. Find a new way to fine-tune the language model, like GPT-2 text2text generation.
+4. Fine-tune a seq2seq model, to generate text.
 
 ### 1. Train a lenguage model from scratch, to generate text.
 First install requirements:
@@ -127,6 +127,10 @@ After training is done, do inference:
 Training was fast, but i could not solve inference, because the script launch an exception that I could no solve.
 
 ### 3. Fine-tune a pre-trained language model, to generate text, by doing a "conversational" tasks
+NoTHINMG
+
+### 4. Fine-tune a seq2seq model, to generate text
+
 
 
 
@@ -155,4 +159,7 @@ tokenizer.add_special_tokens({
         "unk_token": "<SEP>"
     })
     
-    
+# Marketing
+
+- https://mailytica.com/en/pricing/
+- https://emailtree.ai
