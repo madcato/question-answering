@@ -24,7 +24,6 @@ dataset to train a German to English translation model.
 from torchtext.data.utils import get_tokenizer
 from torchtext.vocab import build_vocab_from_iterator
 from torchtext.datasets import Multi30k
-from torchtext.datasets import IWSLT2017
 from typing import Iterable, List
 
 
@@ -58,7 +57,7 @@ special_symbols = ['<unk>', '<pad>', '<bos>', '<eos>']
  
 for ln in [SRC_LANGUAGE, TGT_LANGUAGE]:
     # Training data Iterator 
-    train_iter = IWSLT2017(split='train', language_pair=(SRC_LANGUAGE, TGT_LANGUAGE))
+    train_iter = Multi30k(split='train', language_pair=(SRC_LANGUAGE, TGT_LANGUAGE))
     # Create torchtext's Vocab object 
     vocab_transform[ln] = build_vocab_from_iterator(yield_tokens(train_iter, ln),
                                                     min_freq=1,
@@ -281,9 +280,11 @@ from torch.utils.data import DataLoader
 def train_epoch(model, optimizer):
     model.train()
     losses = 0
-    train_iter = IWSLT2017(split='train', language_pair=(SRC_LANGUAGE, TGT_LANGUAGE))
+    train_iter = Multi30k(split='train', language_pair=(SRC_LANGUAGE, TGT_LANGUAGE))
     train_dataloader = DataLoader(train_iter, batch_size=BATCH_SIZE, collate_fn=collate_fn)
-    
+
+    len_data = len(train_dataloader)
+
     for src, tgt in train_dataloader:
         src = src.to(DEVICE)
         tgt = tgt.to(DEVICE)
@@ -303,14 +304,14 @@ def train_epoch(model, optimizer):
         optimizer.step()
         losses += loss.item()
 
-    return losses / len(train_dataloader)
+    return losses / len_data
 
 
 def evaluate(model):
     model.eval()
     losses = 0
 
-    val_iter = IWSLT2017(split='valid', language_pair=(SRC_LANGUAGE, TGT_LANGUAGE))
+    val_iter = Multi30k(split='valid', language_pair=(SRC_LANGUAGE, TGT_LANGUAGE))
     val_dataloader = DataLoader(val_iter, batch_size=BATCH_SIZE, collate_fn=collate_fn)
 
     for src, tgt in val_dataloader:
@@ -337,6 +338,7 @@ from timeit import default_timer as timer
 NUM_EPOCHS = 18
 
 for epoch in range(1, NUM_EPOCHS+1):
+    print("Epoch {}".format(epoch))
     start_time = timer()
     train_loss = train_epoch(transformer, optimizer)
     end_time = timer()

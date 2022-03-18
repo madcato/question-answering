@@ -1,14 +1,16 @@
 # Question anwsering
 
 ## Install 
+0. Install torch==1.9.0 and torchtext==0.10.0 for 
 1. `git clone git@gitlab:ai/question-answering.git`
 2. `cd question-answering`
 3. `git submodule init`
 4. `git submodule update`
-5. `cd transformers`
-6. `pip3 install -e .`
-7. `pip3 install pandas`
-8. `pip3 install -U scikit-learn`
+5. `source .venv/bin/activate`
+6. `cd transformers`
+7. `pip3 install -e .`
+8. `pip3 install pandas`
+9. `pip3 install -U scikit-learn`
 
 Actually, for solving a **question-answering** problem like the email answering, we must use **text-generation** solutions, the type of task we must use **text2text-generation**. Like:
 
@@ -174,6 +176,7 @@ tokens
 
 Run sample file:    
 
+    $ `source .venv/bin/activate`
     # Create source and target language tokenizer. Make sure to install the dependencies.
     # pip3 install -U spacy
     # python3 -m spacy download en_core_web_sm
