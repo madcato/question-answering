@@ -2,7 +2,11 @@ qa_Grocery_and_Gourmet_Food.json.gz
 __pycache__
 train_list.txt
 val_list.txt
+train_seq2seq_list.csv
+val_seq2seq_list.csv
 .DS_Store
 ._.DS_Store
 output
 output_pretrained
+output_seq2seq
+output_tiny

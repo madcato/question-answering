@@ -1,3 +1,4 @@
+from sre_constants import NOT_LITERAL
 import pandas as pd
 import gzip
 
@@ -27,7 +28,18 @@ def split_data(df):
 def qa_joiner(pair):
     return QA_INIT_TOKEN  + pair[0] + SEPARATOR_TOKEN + pair[1] + QA_END_TOKEN
 
-def save_list_to_file(list, filename):
+def seq_joiner(pair):
+    pair0 = pair[0].replace(",", "\\,")
+    pair0 = pair0.replace('"', '')
+    pair0 = pair0.replace("'", "\\'")
+    pair1 = pair[1].replace(",", "\\,")
+    pair1 = pair1.replace('"', '')
+    pair1 = pair1.replace("'", "\\'")
+    return '"' + pair0 + '","' + pair1 + '"'
+
+def save_list_to_file(list, filename, header=None):
     with open(filename, 'w') as f:
+        if header is not None:
+            f.write(header + '\n')
         for item in list:
             f.write(item + '\n')

@@ -43,6 +43,7 @@ model.resize_token_embeddings(len(tokenizer))
 
 1. Download: `$ wget http://jmcauley.ucsd.edu/data/amazon/qa/qa_Grocery_and_Gourmet_Food.json.gz`
 2. Prepare train and verify data `$ python3 prepare_GG_data.py`
+2. Prepare train and verify data for seq2seq `$ python3 prepare_seq_data.py`
 
 #### qa_Grocery_and_Gourmet_Food Data format
 Each line has a json object with the following properties:
@@ -87,6 +88,7 @@ I must investigate four ways to solve this problem:
 2. Use a pre-trained language model retrained, to generate text. Like GPT-2.
 3. Fine-tune a pre-trained language model, to generate text, by doing a "conversational" tasks.
 4. Fine-tune a seq2seq model, to generate text.
+5. Train from scratch a tiny model to get a 100% accuracy
 
 ### 1. Train a lenguage model from scratch, to generate text.
 First install requirements:
@@ -130,8 +132,53 @@ Training was fast, but i could not solve inference, because the script launch an
 NoTHINMG
 
 ### 4. Fine-tune a seq2seq model, to generate text
+NOTHOING
 
+### 5. Train from scratch a tiny model to get a 100% accuracy
+First install requirements:
 
+    $ pip3 install -r ./transformers/examples/pytorch/language-modeling/requirements.txt
+
+Then run training:
+
+    $ ./train_tiny_gpt2_from_scratch/train_gpt2_model.sh
+
+After training is done, do inference:
+
+    $ python3 ./train_tiny_gpt2_from_scratch/inference_gpt2_model.py
+
+### 6. Train a pytorch model based on translation
+Use a translation model by adapting it to solve this questions-answering.
+
+https://pytorch.org/tutorials/beginner/translation_transformer.html
+
+ToDo:
+- [X] Buscar códigos donde ya haya implementado Datasets.
+- [X] Buscar códigos donde ya haya usado los transformers de pytorch.
+- [X] Implementar el código tal y como está en el doc translation_transformer.
+- [ ] Adaptar el código para hacer una question-answering.
+
+tokenizer = get_tokenizer('basic_english')
+
+- https://gitlab/ai/pytorch-word2vec/-/blob/main/word2vec/dataset.py
+- https://gitlab/ai/libtorch-lm/-/blob/master/language_translation.py
+- https://gitlab/ai/libtorch-lm/-/wikis/home
+- https://andrewpeng.dev/transformer-pytorch/
+
+Doc:
+tokens
+- UNK_IDX -> default index. This index is returned when the token is not found.
+- PAD_IDX -> value used to fill short sequences.
+- BOS_IDX -> begining of string
+- EOS_IDX -> end of string
+
+Run sample file:    
+
+    # Create source and target language tokenizer. Make sure to install the dependencies.
+    # pip3 install -U spacy
+    # python3 -m spacy download en_core_web_sm
+    # python3 -m spacy download de_core_news_sm
+    $ python3 ./train_pytorch_for_translation/language_translation.py
 
 
 ## ToDo
