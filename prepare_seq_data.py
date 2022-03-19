@@ -26,6 +26,6 @@ val_list = list(map(seq_joiner, val_pairs))
 print(train_list[1])
 
 print("Saving train_list to train_seq2seq_list.csv")
-save_list_to_file(train_list, "train_seq2seq_list.csv", "question,answer")
+save_list_to_file(train_list, "train_seq2seq_list.csv", "question,answer", max_length=200)
 print("Saving val_list to val_seq2seq_list.csv")
-save_list_to_file(val_list, "val_seq2seq_list.csv", "question,answer")
+save_list_to_file(val_list, "val_seq2seq_list.csv", "question,answer", max_length=200)

@@ -20,6 +20,11 @@ grocery questions and answers.
 #
 #
 
+from datasets import load_dataset
+
+QUESTION_COLUMN = "question"
+ANSWER_COLUMN = "answer"
+
 # Load datasets
 data_files = {}
 data_files["train"] = "train_seq2seq_list.csv"
@@ -30,7 +35,6 @@ val_dataset = raw_datasets["validation"]
 
 from torchtext.data.utils import get_tokenizer
 from torchtext.vocab import build_vocab_from_iterator
-from torchtext.datasets import Multi30k
 from typing import Iterable, List
 
 
@@ -55,12 +59,22 @@ UNK_IDX, PAD_IDX, BOS_IDX, EOS_IDX = 0, 1, 2, 3
 # Make sure the tokens are in order of their indices to properly insert them in vocab
 special_symbols = ['<unk>', '<pad>', '<bos>', '<eos>']
 
-train_iter = train_dataset
+inputs = train_dataset[QUESTION_COLUMN]
+targets = train_dataset[ANSWER_COLUMN]
+train_iter = inputs + targets
 # Create torchtext's Vocab object 
 vocab_transform = build_vocab_from_iterator(yield_tokens(train_iter),
-                                            min_freq=1,
+                                            min_freq=2,
                                             specials=special_symbols,
                                             special_first=True)
+
+# Prepare data to be trained
+train_iter = list(zip(inputs, targets))
+
+# Prepare data to be validated
+inputs = val_dataset[QUESTION_COLUMN]
+targets = val_dataset[ANSWER_COLUMN]
+val_iter = list(zip(inputs, targets))
 
 # Set UNK_IDX as the default index. This index is returned when the token is not found. 
 # If not set, it throws RuntimeError when the queried token is not found in the Vocabulary. 
@@ -137,7 +151,7 @@ class Seq2SeqTransformer(nn.Module):
                                        num_decoder_layers=num_decoder_layers,
                                        dim_feedforward=dim_feedforward,
                                        dropout=dropout)
-        self.generator = nn.Linear(emb_size, tgt_vocab_size)
+        self.generator = nn.Linear(emb_size, vocab_size)
         self.src_tok_emb = TokenEmbedding(vocab_size, emb_size)
         self.tgt_tok_emb = TokenEmbedding(vocab_size, emb_size)
         self.positional_encoding = PositionalEncoding(
@@ -206,6 +220,8 @@ BATCH_SIZE = 128
 NUM_ENCODER_LAYERS = 3
 NUM_DECODER_LAYERS = 3
 
+print("Vocab size: ", VOCAB_SIZE)
+
 transformer = Seq2SeqTransformer(NUM_ENCODER_LAYERS, NUM_DECODER_LAYERS, EMB_SIZE, 
                                  NHEAD, VOCAB_SIZE, FFN_HID_DIM)
 
@@ -257,6 +273,8 @@ text_transform = sequential_transforms(token_transform, #Tokenization
 def collate_fn(batch):
     src_batch, tgt_batch = [], []
     for src_sample, tgt_sample in batch:
+        if tgt_sample is None:
+            print(src_sample)
         src_batch.append(text_transform(src_sample.rstrip("\n")))
         tgt_batch.append(text_transform(tgt_sample.rstrip("\n")))
 
@@ -274,7 +292,6 @@ from torch.utils.data import DataLoader
 def train_epoch(model, optimizer):
     model.train()
     losses = 0
-    train_iter = train_dataset
     train_dataloader = DataLoader(train_iter, batch_size=BATCH_SIZE, collate_fn=collate_fn)
 
     for src, tgt in train_dataloader:
@@ -303,7 +320,6 @@ def evaluate(model):
     model.eval()
     losses = 0
 
-    val_iter = val_dataset
     val_dataloader = DataLoader(val_iter, batch_size=BATCH_SIZE, collate_fn=collate_fn)
 
     for src, tgt in val_dataloader:
@@ -376,8 +392,13 @@ def translate(model: torch.nn.Module, src_sentence: str):
 ######################################################################
 #
 
-print(translate(transformer, "Eine Gruppe von Menschen steht vor einem Iglu ."))
 
+print(translate(transformer, "What is Sparklin water?"))  # "A type of flavored water"
+print("\n")
+print(translate(transformer, "is this organic?"))
+print("\n")
+print(translate(transformer, "How many individual bag come in the bag. ?"))
+print("\n")
 
 ######################################################################
 # References
