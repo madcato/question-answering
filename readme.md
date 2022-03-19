@@ -173,6 +173,7 @@ tokens
 - PAD_IDX -> value used to fill short sequences.
 - BOS_IDX -> begining of string
 - EOS_IDX -> end of string
+- SEP_IDX -> separator between questions and answers
 
 Run sample file:    
 
@@ -183,6 +184,9 @@ Run sample file:
     # python3 -m spacy download de_core_news_sm
     $ python3 ./train_pytorch_for_translation/language_translation.py
 
+#### Train
+
+    $ python3 ./train_pytorch_for_translation/question-answering.py
 
 ## ToDo
 - [ ] Encontrar cómo guardar y restaurar modelos reentrenados.
