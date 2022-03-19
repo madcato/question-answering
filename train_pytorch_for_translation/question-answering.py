@@ -27,8 +27,8 @@ ANSWER_COLUMN = "answer"
 
 # Load datasets
 data_files = {}
-data_files["train"] = "train_seq2seq_list.csv"
-data_files["validation"] = "val_seq2seq_list.csv" 
+data_files["train"] = "train_tiny_list.csv"
+data_files["validation"] = "val_tiny_list.csv" 
 raw_datasets = load_dataset("csv", data_files=data_files, cache_dir=None)
 train_dataset = raw_datasets["train"]
 val_dataset = raw_datasets["validation"]
@@ -343,7 +343,7 @@ def evaluate(model):
 #
 
 from timeit import default_timer as timer
-NUM_EPOCHS = 18
+NUM_EPOCHS = 100
 
 for epoch in range(1, NUM_EPOCHS+1):
     print("Epoch {}".format(epoch))
@@ -392,12 +392,11 @@ def translate(model: torch.nn.Module, src_sentence: str):
 ######################################################################
 #
 
-
-print(translate(transformer, "What is Sparklin water?"))  # "A type of flavored water"
+print(translate(transformer, "are they shelled"))  # "Yes"
 print("\n")
-print(translate(transformer, "is this organic?"))
+print(translate(transformer, "Can I use this on coconut for kefir?"))  # "I use it with coconut water. Works great!"
 print("\n")
-print(translate(transformer, "How many individual bag come in the bag. ?"))
+print(translate(transformer, "Do you ship to Israel?"))  # "Yes\, Depending on the items we can ship to Israel"
 print("\n")
 
 ######################################################################
