@@ -214,7 +214,7 @@ torch.manual_seed(0)
 
 VOCAB_SIZE = len(vocab_transform)
 EMB_SIZE = 512
-NHEAD = 8
+NHEAD = 2
 FFN_HID_DIM = 512
 BATCH_SIZE = 128
 NUM_ENCODER_LAYERS = 3

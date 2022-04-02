@@ -1,0 +1,130 @@
+python3 ./train_pytorch_for_translation/question-answering.py
+-------------------------------------
+EMB_SIZE = 128            <---------
+NHEAD = 8
+FFN_HID_DIM = 512
+BATCH_SIZE = 128
+NUM_ENCODER_LAYERS = 3
+NUM_DECODER_LAYERS = 3
+
+Epoch: 100, Train loss: 3.548, Val loss: 3.969, Epoch time = 0.118s
+ <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk>
+
+
+ <unk> , I have <unk> <unk> <unk> <unk> <unk> <unk> , <unk> , <unk> <unk>
+
+
+ <unk> , we do not . 
+---------------------------------------
+EMB_SIZE = 512              <---------
+NHEAD = 8
+FFN_HID_DIM = 512
+BATCH_SIZE = 128
+NUM_ENCODER_LAYERS = 3
+NUM_DECODER_LAYERS = 3
+
+Epoch: 100, Train loss: 0.594, Val loss: 5.464, Epoch time = 0.299s
+ Yes 
+
+
+ I use it with coconut water . <unk> great ! 
+
+
+ Yes\ , <unk> on the items we can ship to Israel .
+---------------------------------------
+MB_SIZE = 1024            <---------
+NHEAD = 8
+FFN_HID_DIM = 512
+BATCH_SIZE = 128
+NUM_ENCODER_LAYERS = 3
+NUM_DECODER_LAYERS = 3
+
+Epoch: 100, Train loss: 0.137, Val loss: 5.964, Epoch time = 0.777s
+ Yes 
+
+
+ I use it with coconut water . <unk> great ! 
+
+
+ Yes\ , <unk> on the items we can ship to Israel .
+ ---------------------------------------
+ EMB_SIZE = 512
+ NHEAD = 32              <---------
+ FFN_HID_DIM = 512
+ BATCH_SIZE = 128
+ NUM_ENCODER_LAYERS = 3
+ NUM_DECODER_LAYERS = 3
+ 
+Epoch: 100, Train loss: 0.611, Val loss: 5.116, Epoch time = 0.369s
+ Yes 
+
+
+ I use it with coconut water . <unk> great ! 
+
+
+ Yes\ , <unk> on the items we can ship to Israel .
+---------------------------------------
+EMB_SIZE = 512
+NHEAD = 8
+FFN_HID_DIM = 2024         <---------
+BATCH_SIZE = 128
+NUM_ENCODER_LAYERS = 3
+NUM_DECODER_LAYERS = 3
+
+Epoch: 100, Train loss: 0.264, Val loss: 5.677, Epoch time = 0.434s
+ Yes 
+
+
+ I use it with coconut water . <unk> great ! 
+
+
+ Yes\ , <unk> on the items we can ship to Israel .
+---------------------------------------
+EMB_SIZE = 512
+NHEAD = 8
+FFN_HID_DIM = 512
+BATCH_SIZE = 128
+NUM_ENCODER_LAYERS = 6        <---------
+NUM_DECODER_LAYERS = 6        <---------
+
+Epoch: 100, Train loss: 0.997, Val loss: 5.326, Epoch time = 0.562s
+ Yes 
+
+
+ I use it with coconut water . <unk> great ! 
+
+
+ Yes\ , <unk> on the items we can ship to Israel .
+---------------------------------------
+EMB_SIZE = 512
+NHEAD = 8
+FFN_HID_DIM = 512
+BATCH_SIZE = 128
+NUM_ENCODER_LAYERS = 1        <---------
+NUM_DECODER_LAYERS = 1        <---------
+
+Epoch: 100, Train loss: 0.579, Val loss: 4.926, Epoch time = 0.125s
+ Yes 
+
+
+ I use it with coconut water . <unk> great ! 
+
+
+ Yes\ , <unk> on the items we can ship to Israel .
+---------------------------------------
+EMB_SIZE = 512
+NHEAD = 2               <---------
+FFN_HID_DIM = 512
+BATCH_SIZE = 128
+NUM_ENCODER_LAYERS = 3
+NUM_DECODER_LAYERS = 3
+
+Epoch: 100, Train loss: 0.630, Val loss: 5.383, Epoch time = 0.288s
+ Yes 
+
+
+ I use it with coconut water . <unk> great ! 
+
+
+ Yes\ , <unk> on the items we can ship to Israel .
+---------------------------------------
