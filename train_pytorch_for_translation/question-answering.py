@@ -214,11 +214,11 @@ torch.manual_seed(0)
 
 VOCAB_SIZE = len(vocab_transform)
 EMB_SIZE = 512
-NHEAD = 2
-FFN_HID_DIM = 512
+NHEAD = 8
+FFN_HID_DIM = 2024
 BATCH_SIZE = 128
-NUM_ENCODER_LAYERS = 3
-NUM_DECODER_LAYERS = 3
+NUM_ENCODER_LAYERS = 1
+NUM_DECODER_LAYERS = 1
 
 print("Vocab size: ", VOCAB_SIZE)
 
@@ -397,6 +397,8 @@ print("\n")
 print(translate(transformer, "Can I use this on coconut for kefir?"))  # "I use it with coconut water. Works great!"
 print("\n")
 print(translate(transformer, "Do you ship to Israel?"))  # "Yes\, Depending on the items we can ship to Israel"
+print("\n")
+print(translate(transformer, "What size are the gum balls?"))  # ,"These are pretty large. Size of a quarter"
 print("\n")
 
 ######################################################################
