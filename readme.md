@@ -27,6 +27,8 @@ Actually, for solving a **question-answering** problem like the email answering,
 - [GPT2Config param doc](https://huggingface.co/docs/transformers/model_doc/gpt2#transformers.GPT2Config)
 - [transformers.ConversationalPipeline](https://huggingface.co/docs/transformers/v4.17.0/en/main_classes/pipelines#transformers.ConversationalPipeline)
 - [DialoGPT](https://github.com/microsoft/DialoGPT)
+- [StackOverflow dataset](https://github.com/elastic/rally-tracks/tree/master/so)
+- [Text similarity search with vector fields](https://www.elastic.co/blog/text-similarity-search-with-vectors-in-elasticsearch)
 
 ## Guide 1 to retrain a GPT-2 model with PyTorch
 - [Fine-tuning GPT2 for Text Generation Using Pytorch](https://towardsdatascience.com/fine-tuning-gpt2-for-text-generation-using-pytorch-2ee61a4f1ba7)
@@ -91,6 +93,9 @@ I must investigate four ways to solve this problem:
 3. Fine-tune a pre-trained language model, to generate text, by doing a "conversational" tasks.
 4. Fine-tune a seq2seq model, to generate text.
 5. Train from scratch a tiny model to get a 100% accuracy
+6. Train a pytorch model based on translation
+7. Try another time to fine-tuning a pre-trained language model, to generate text. BERT, GPT, Transformer-XL, RoBERTa, XLNet, XLM, DistilBERT, ... with PyTorch or HuggingFace Transformers.
+7. Use doc2vec to generate the question embedding, store it and find it using cosine similarity.
 
 ### 1. Train a lenguage model from scratch, to generate text.
 First install requirements:
@@ -183,6 +188,15 @@ Run sample file:
     # python3 -m spacy download en_core_web_sm
     # python3 -m spacy download de_core_news_sm
     $ python3 ./train_pytorch_for_translation/language_translation.py
+
+### 7. Use doc2vec to generate the question embedding, store it and find it using cosine similarity.
+cosine-similarity(V,W) = 1 - (v1 * w1 + v2 * w2 + v3 * w3) / (sqrt(v1 * v1 + v2 * v2 + v3 * v3) * sqrt(w1 * w1 + w2 * w2 + w3 * w3)
+)
+
+Use StackOverflow dataset as corpus.
+
+
+
 
 #### Train
 
