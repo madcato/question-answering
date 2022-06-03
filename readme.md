@@ -12,6 +12,12 @@
 8. `pip3 install pandas`
 9. `pip3 install -U scikit-learn`
 
+## ToDo
+- [ ] Mirar para aprender https://huggingface.co/transformers/v3.2.0/quicktour.html
+- [ ] Estudiar https://huggingface.co/transformers/v3.2.0/preprocessing.html)
+- [ ] Estudiar https://huggingface.co/transformers/v3.2.0/training.html
+
+## Doc
 Actually, for solving a **question-answering** problem like the email answering, we must use **text-generation** solutions, the type of task we must use **text2text-generation**. Like:
 
 - [Text Generation](https://huggingface.co/tasks/text-generation)
@@ -29,6 +35,9 @@ Actually, for solving a **question-answering** problem like the email answering,
 - [DialoGPT](https://github.com/microsoft/DialoGPT)
 - [StackOverflow dataset](https://github.com/elastic/rally-tracks/tree/master/so)
 - [Text similarity search with vector fields](https://www.elastic.co/blog/text-similarity-search-with-vectors-in-elasticsearch)
+- [Huggingface: Preprocessing data](https://huggingface.co/transformers/v3.2.0/preprocessing.html)
+- [Huggingdace: Training and fine-tuning](https://huggingface.co/transformers/v3.2.0/training.html) (Aquí explican como crear un fine-tuning custom con PyTorch y Huggingface)
+
 
 ## Guide 1 to retrain a GPT-2 model with PyTorch
 - [Fine-tuning GPT2 for Text Generation Using Pytorch](https://towardsdatascience.com/fine-tuning-gpt2-for-text-generation-using-pytorch-2ee61a4f1ba7)
