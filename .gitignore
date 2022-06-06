@@ -10,5 +10,6 @@ output
 output_pretrained
 output_seq2seq
 output_tiny
+output_pretrained_wiki
 .venv
 .data
