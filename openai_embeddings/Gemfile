@@ -1,0 +1,5 @@
+source 'https://rubygems.org'
+
+gem 'ruby-openai'
+gem 'sqlite3'
+gem 'daru'

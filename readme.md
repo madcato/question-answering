@@ -13,9 +13,9 @@
 9. `pip3 install -U scikit-learn`
 
 ## ToDo
-- [ ] Mirar para aprender https://huggingface.co/transformers/v3.2.0/quicktour.html
-- [ ] Estudiar https://huggingface.co/transformers/v3.2.0/preprocessing.html)
-- [ ] Estudiar https://huggingface.co/transformers/v3.2.0/training.html
+- [x] Mirar para aprender https://huggingface.co/transformers/v3.2.0/quicktour.html
+- [x] Estudiar https://huggingface.co/transformers/v3.2.0/preprocessing.html)
+- [x] Estudiar https://huggingface.co/transformers/v3.2.0/training.html
 
 ## Doc
 Actually, for solving a **question-answering** problem like the email answering, we must use **text-generation** solutions, the type of task we must use **text2text-generation**. Like:
@@ -103,8 +103,9 @@ I must investigate four ways to solve this problem:
 4. Fine-tune a seq2seq model, to generate text.
 5. Train from scratch a tiny model to get a 100% accuracy
 6. Train a pytorch model based on translation
-7. Try another time to fine-tuning a pre-trained language model, to generate text. BERT, GPT, Transformer-XL, RoBERTa, XLNet, XLM, DistilBERT, ... with PyTorch or HuggingFace Transformers.
 7. Use doc2vec to generate the question embedding, store it and find it using cosine similarity.
+8. Try OpenAI to make a "text search" solution.
+9. Try Huggingface BERT to make a "text search" solution.
 
 ### 1. Train a lenguage model from scratch, to generate text.
 First install requirements:
@@ -204,12 +205,63 @@ cosine-similarity(V,W) = 1 - (v1 * w1 + v2 * w2 + v3 * w3) / (sqrt(v1 * v1 + v2 
 
 Use StackOverflow dataset as corpus.
 
+### 8. Try OpenAI to make a "text search" solution.
+- [OpenAI: Embeddings](https://beta.openai.com/docs/guides/embeddings/)
+- [Sqlite3 ruby gem doc](https://github.com/sparklemotion/sqlite3-ruby)
+- [Wikipedia: Cosine similarity](https://en.wikipedia.org/wiki/Cosine_similarity)
+- [Daru Gem (Pandas ruby alternative)](https://github.com/SciRuby/daru)
+- [Daru doc form Ankane](https://ankane.org/daru)
+
+- Use **Ada** model, because is the ligther (1024 dimensions)
+- Use **text-similarity-ada-001** model for clustering, regression, anomaly detection, visualization.
+
+#### Installation
+
+##### First install last version of sqlite3
+... deactivating **SQLITE_MAX_EXPR_DEPTH**
+
+1. `CFLAGS="-DSQLITE_MAX_EXPR_DEPTH=0" ./configure` 
+2. `make`
+3. `sudo make install`
+
+##### Set $PATH to point to /usr/local/bin 
+
+`$ export PATH="$PATH:/usr/local/bin"`
+
+#### Last install gems
+
+`$ bundle`
+
+**IMPORTANT** Install gems last to make sqlite3 gem use the compiled version of sqlite3 executable. 
+
+#### Usage
+First generate embeddings and store it in `sqlite.db`:
+
+```sh
+ruby ./openai_embeddings/generate_embeddings.rb
+```
+
+Then search for text:
+
+```sh
+ruby ./openai_embedding/search_text.rb
+```
 
 
+Use `train_tiny_list.csv`
 
 #### Train
 
     $ python3 ./train_pytorch_for_translation/question-answering.py
+
+### 9. Try Huggingface Bert to make a "text search" solution
+with sentence embeddings
+
+```sh
+cd bert_embeddings
+source .venv/bin/activate
+python3 try_embeddings.py
+```
 
 ## ToDo
 - [ ] Encontrar cómo guardar y restaurar modelos reentrenados.
