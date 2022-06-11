@@ -106,6 +106,7 @@ I must investigate four ways to solve this problem:
 7. Use doc2vec to generate the question embedding, store it and find it using cosine similarity.
 8. Try OpenAI to make a "text search" solution.
 9. Try Huggingface BERT to make a "text search" solution.
+10. Try Sentence-Transformers to make a "text search" solution.
 
 ### 1. Train a lenguage model from scratch, to generate text.
 First install requirements:
@@ -262,6 +263,44 @@ cd bert_embeddings
 source .venv/bin/activate
 python3 try_embeddings.py
 ```
+
+###  10. Try Sentence-Transformers to make a "text search" solution
+- [SentenceTransformers Documentation](https://www.sbert.net)
+- [github(UKPLab/sentence-transformers)](https://github.com/UKPLab/sentence-transformers)
+- [Pretrained models](https://www.sbert.net/docs/pretrained_models.html)
+
+#### Use cases
+- [Semantic Textual Similarity](https://www.sbert.net/docs/usage/semantic_textual_similarity.html)
+- [Semantic search](https://www.sbert.net/examples/applications/semantic-search/README.html)
+- [Paraphrase Mining](https://www.sbert.net/examples/applications/paraphrase-mining/README.html)
+
+#### ToDo 
+- [ ] See other use cases and usages of [Sentence-Transformers](https://www.sbert.net/examples/applications/computing-embeddings/README.html)
+
+#### Install
+First install PyTorch with CUDA.
+Then:
+
+    $ pip3 install -U sentence-transformers
+
+#### Usage
+
+```sh
+cd sentence_transformers
+source .venv/bin/activate
+python3 try_sentence.py
+```
+
+#### Conclusions
+
+Para idioma español funciona bastante bien el modelo:
+
+Estos otros modelos también son multi-idioma:
+
+- distiluse-base-multilingual-cased-v1
+- distiluse-base-multilingual-cased-v2
+- paraphrase-multilingual-MiniLM-L12-v2
+- paraphrase-multilingual-mpnet-base-v2
 
 ## ToDo
 - [ ] Encontrar cómo guardar y restaurar modelos reentrenados.
