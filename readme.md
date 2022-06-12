@@ -37,6 +37,7 @@ Actually, for solving a **question-answering** problem like the email answering,
 - [Text similarity search with vector fields](https://www.elastic.co/blog/text-similarity-search-with-vectors-in-elasticsearch)
 - [Huggingface: Preprocessing data](https://huggingface.co/transformers/v3.2.0/preprocessing.html)
 - [Huggingdace: Training and fine-tuning](https://huggingface.co/transformers/v3.2.0/training.html) (Aquí explican como crear un fine-tuning custom con PyTorch y Huggingface)
+- [dslim/bert-base-NER](https://huggingface.co/dslim/bert-base-NER)
 
 
 ## Guide 1 to retrain a GPT-2 model with PyTorch
@@ -107,6 +108,7 @@ I must investigate four ways to solve this problem:
 8. Try OpenAI to make a "text search" solution.
 9. Try Huggingface BERT to make a "text search" solution.
 10. Try Sentence-Transformers to make a "text search" solution.
+11. Try NER.
 
 ### 1. Train a lenguage model from scratch, to generate text.
 First install requirements:
@@ -284,7 +286,6 @@ Then:
     $ pip3 install -U sentence-transformers
 
 #### Usage
-
 ```sh
 cd sentence_transformers
 source .venv/bin/activate
@@ -292,7 +293,6 @@ python3 try_sentence.py
 ```
 
 #### Conclusions
-
 Para idioma español funciona bastante bien el modelo:
 
 Estos otros modelos también son multi-idioma:
@@ -301,6 +301,16 @@ Estos otros modelos también son multi-idioma:
 - distiluse-base-multilingual-cased-v2
 - paraphrase-multilingual-MiniLM-L12-v2
 - paraphrase-multilingual-mpnet-base-v2
+
+### 11. Try NER
+- [Huggingface: token classification](https://huggingface.co/tasks/token-classification)
+- Davlan/bert-base-multilingual-cased-ner-hrl
+
+```sh
+.venv/bin/activate
+cd ner
+python3 try_spanish_ner.py
+```
 
 ## ToDo
 - [ ] Encontrar cómo guardar y restaurar modelos reentrenados.
