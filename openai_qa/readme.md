@@ -1,6 +1,13 @@
 # OpenAI Q&A
 In this directory, I'm going to investigate how to solve Q&A from a custom plain text by using OpenAI models and APIs, also using fine-tuning and embeddings.
 
+## Run basic usage
+- `ruby test.rb` # run basic usage to learn how to send requests to OpenAI API
+
+## Run preprocessing of a document library sample code
+- `ruby preprocess.rb` # run preprocessing of a document library sample code
+
+
 ## More info
 - [Fine-tune with OpenAI](https://beta.openai.com/docs/api-reference/fine-tunes)
 
