@@ -13,3 +13,4 @@ output_tiny
 output_pretrained_wiki
 .venv
 .data
+.env

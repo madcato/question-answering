@@ -1,7 +1,7 @@
 require 'ruby/openai'
 
 ### OpenAI Embeddings
-OPENAI_ACCESS_TOKEN="sk-gBWxeN4HR5DnskfalaLCwQTG3ukVFL1Smioqn28h"
+OPENAI_ACCESS_TOKEN=ENV['OPENAI_ACCESS_TOKEN']
 EMBEDDINGS_SIZE=1024
 
 class OpenAI_API
