@@ -10,6 +10,8 @@ In this directory, I'm going to investigate how to solve Q&A from a custom plain
 
 ## More info
 - [Fine-tune with OpenAI](https://beta.openai.com/docs/api-reference/fine-tunes)
+- [Weaviate: vector database](https://github.com/semi-technologies/weaviate)
+- [Qdrant: vector database](https://github.com/qdrant/qdrant)
 
 ### Posible Solución
 La solución puede ser usar el davinci-instruct para generar preguntas y respuestas 

@@ -11,6 +11,7 @@ data = Daru::DataFrame.from_csv('https://cdn.openai.com/API/examples/data/olympi
 
 ## Daru set index
 data = data.set_index(["title", "heading"])
+data = data.first(500)
 
 puts "#{data.size} rows in the data."
 
@@ -20,11 +21,6 @@ puts
 puts
 
 # Embeddings
-
-MODEL_NAME = "curie"
-
-DOC_EMBEDDINGS_MODEL = "text-search-#{MODEL_NAME}-doc-001"
-QUERY_EMBEDDINGS_MODEL = "text-search-#{MODEL_NAME}-query-001"
 
 openai = OpenAI_API.new(DOC_EMBEDDINGS_MODEL, QUERY_EMBEDDINGS_MODEL)
 
@@ -59,4 +55,4 @@ data.sort!([:similarity], ascending: false)
 
 p data.head
 
-puts "Respuesta: " + data[:content][0]
+puts "Respuesta: " + data['content'][0]
