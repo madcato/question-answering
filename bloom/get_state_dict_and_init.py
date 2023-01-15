@@ -10,7 +10,7 @@ def get_state_dict(shard_num, prefix=None):
 from transformers import AutoTokenizer, AutoModelForCausalLM, BloomConfig
 from transformers.models.bloom.modeling_bloom import BloomBlock, build_alibi_tensor
 
-model_path = "/hdd/gloom" # replace with your local folder path
+model_path = "/hdd/bloom/" # replace with your local folder path
 config = BloomConfig.from_pretrained(model_path)
 tokenizer = AutoTokenizer.from_pretrained(model_path)
 device = 'cpu'
