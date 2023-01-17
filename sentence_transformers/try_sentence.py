@@ -1,5 +1,5 @@
 from sentence_transformers import SentenceTransformer, util
-model = SentenceTransformer('paraphrase-multilingual-mpnet-base-v2')                        # Embedding size: 768
+model = SentenceTransformer('paraphrase-multilingual-mpnet-base-v2')                        # Embedding size: 768, este parece el mejor a día 20230117
 # model = SentenceTransformer('sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2')  # Embedding size: 384
 # model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v1')                       # Embedding size: 384
 # model = SentenceTransformer('sentence-transformers/distilbert-base-nli-mean-tokens')        # Embedding size: 768
