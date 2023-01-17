@@ -5,7 +5,9 @@ Use this software to store and search embeddings from models like Bloom and Open
 ## Info
 - [Weavitate on Github](https://github.com/semi-technologies/weaviate)
 - [Weaviate home web](https://weaviate.io)
+- [Getting started](https://weaviate.io/developers/weaviate/current/getting-started/index.html)
 - [Installation](https://weaviate.io/developers/weaviate/current/installation/index.html)
+- [Text/Image search for similar products](https://github.com/EsraaMadi/similarity-search-weaviate)
 
 ## Install
 
