@@ -8,8 +8,20 @@ Use this software to store and search embeddings from models like Bloom and Open
 - [Getting started](https://weaviate.io/developers/weaviate/current/getting-started/index.html)
 - [Installation](https://weaviate.io/developers/weaviate/current/installation/index.html)
 - [Text/Image search for similar products](https://github.com/EsraaMadi/similarity-search-weaviate)
+- [Python client documentation](https://weaviate-python-client.readthedocs.io/en/stable/#)
 
 ## Install
 
 1. Download the last `docker-compose.yml` with `curl -o docker-compose.yml "https://configuration.semi.technology/v2/docker-compose/docker-compose.yml?modules=standalone&runtime=docker-compose&weaviate_version=v1.17.0"`
 2. run `docker-compose up -d`
+
+
+## Run
+
+_(Optional: run .py files in the current directory to try it)_
+
+### Run qa
+
+1. `docker-compose up -d`
+2. `python3 qa/load-db.py` (Only first time)
+3. `python3 qa/main.py`
