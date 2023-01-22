@@ -14,8 +14,10 @@ Use this software to store and search embeddings from models like Bloom and Open
 ## Install
 
 1. Install [`nvidia-container-toolkit` by following this guide](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker)
-2. Download the last `docker-compose.yml` with `curl -o docker-compose.yml "https://configuration.semi.technology/v2/docker-compose/docker-compose.yml?modules=standalone&runtime=docker-compose&weaviate_version=v1.17.0"`
-3. run `docker-compose up -d`
+2. Install weaviate-client `pip3 install weaviate-client`
+3. Install Docker.
+4. Download the last `docker-compose.yml` with `curl -o docker-compose.yml "https://configuration.semi.technology/v2/docker-compose/docker-compose.yml?modules=standalone&runtime=docker-compose&weaviate_version=v1.17.0"`
+5. run `docker-compose up -d`
 
 
 ## Run
