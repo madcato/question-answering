@@ -6,4 +6,5 @@ client = weaviate.Client("http://localhost:8080")
 all_objects = client.data_object.get(class_name="Document", with_vector=False)
 
 for obj in all_objects:
+    print(obj)
     client.data_object.delete(obj['id'])
