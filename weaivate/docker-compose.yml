@@ -13,7 +13,7 @@ services:
     ports:
     - 8080:8080
     volumes:
-    - /Users/danielvela/projects/weaviate:/var/lib/weaviate
+    - /home/danielvela/projects/weaviate:/var/lib/weaviate
     restart: on-failure:0
     environment:
       QUERY_DEFAULTS_LIMIT: 25
@@ -27,9 +27,21 @@ services:
   t2v-transformers:
     image: semitechnologies/transformers-inference:sentence-transformers-paraphrase-multilingual-mpnet-base-v2
     environment:
-      ENABLE_CUDA: 0 # set to 1 to enable
+      ENABLE_CUDA: 1 # set to 1 to enable
+      NVIDIA_VISIBLE_DEVICES: all
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - capabilities: [gpu]
   qna-transformers:
     image: semitechnologies/qna-transformers:bert-large-uncased-whole-word-masking-finetuned-squad
     environment:
-      ENABLE_CUDA: 0
+      ENABLE_CUDA: 1
+      NVIDIA_VISIBLE_DEVICES: all
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - capabilities: [gpu]
 ...
