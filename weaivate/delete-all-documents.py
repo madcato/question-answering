@@ -3,4 +3,7 @@ import json
 
 client = weaviate.Client("http://localhost:8080")
 
-client.data_object.delete_all()
+all_objects = client.data_object.get(class_name="Document", with_vector=False)
+
+for obj in all_objects:
+    client.data_object.delete(obj['id'])
