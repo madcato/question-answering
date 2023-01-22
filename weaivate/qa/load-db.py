@@ -2,6 +2,9 @@ import numpy as np
 import weaviate
 import pandas as pd
 import pickle
+import time
+
+start = time.time()
 
 ## IMPORTANT: first run ../create-doc-schema.py
 
@@ -20,3 +23,6 @@ for index, row in df.iterrows():
         },
         "Document"
     )
+
+end = time.time()
+print(end - start)
