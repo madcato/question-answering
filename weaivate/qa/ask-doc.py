@@ -1,9 +1,9 @@
 import weaviate
 
-client = weaviate.Client("http://localhost:8080")
+client = weaviate.Client("http://bolt:8080")
 
 ask = {
-  "question": "What is the olympic motto?",
+  "question": "What is the meaning of the circles of the olympic flag?",
   "properties": ["content"]
 }
 
@@ -11,9 +11,12 @@ result = (
   client.query
   .get("Document", ["content", "_additional {answer {hasAnswer certainty property result startPosition endPosition} }"])
   .with_ask(ask)
-  .with_limit(1)
+  .with_limit(10)
   .do()
 )
 
-result = result['data']['Get']['Document'][0]["_additional"]["answer"]["result"]
-print(result)
+documents = result['data']['Get']['Document']
+
+for document in documents:
+  result = document["_additional"]["answer"]["result"]
+  print(result)
