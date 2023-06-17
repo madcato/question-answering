@@ -10,6 +10,7 @@ Use this software to store and search embeddings from models like Bloom and Open
 - [Text/Image search for similar products](https://github.com/EsraaMadi/similarity-search-weaviate)
 - [Python client documentation](https://weaviate-python-client.readthedocs.io/en/stable/#)
 - [Using GPU from a docker container?](https://stackoverflow.com/questions/25185405/using-gpu-from-a-docker-container)
+- [Weaviate Ruby Client](https://github.com/andreibondarev/weaviate-ruby)
 
 ## Install
 
