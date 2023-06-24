@@ -41,26 +41,17 @@ Email:
 Hola, 
 "
 
-answer = openai.generate_answer(prompt)
-p answer
+Benchmark.bm do |x|
+  x.report("answer 1") {
+    answer = openai.generate_answer(prompt)
+    p answer
+  }
+end
 
 # " Para solicitar la baja del impuesto de circulación, tendrás que dirigirte a las oficinas del Ayuntamiento (específicamente a la ventanilla de recaudación) y rellenar un impreso de solicitud de baja. Ten en cuenta que debes llevar contigo el justificante de baja definitiva de la DGT y el Certificado de Destrucción."
 
 
 context = "A través de esta opción podrás realizar tu solicitud de prestaciones por desempleo en línea y sin necesidad de desplazamientos.
-
-SOLO PARA ACCESOS A TRAVÉS DE CL@VE: Para poder firmar un trámite en el SEPE, debe haberse realizado el registro de nivel avanzado en el sistema Cl@ve, bien de forma presencial, en una oficina ante un empleado público habilitado al efecto, o bien de forma telemática, previa autenticación del ciudadano mediante un certificado electrónico reconocido
-ATENCION: La nueva versión de solicitud a través de la sede electrónica simplifica y actualiza los tratamientos, unificando y reduciendo pantallas e incorporando mejoras en los avisos de finalización de los trámites.
-Formulario para presolicitud individual de prestaciones por desempleo.
-Solicitud de prestación contributiva. También puedes reconocer tu prestación en el momento a través de la web.
-Solicitud de subsidio por desempleo. También puedes realizar la prórroga de tu subsidio en el momento a través de la web.
-Solicitud de renta activa de inserción. Puede obtener digitalmente el Certificado de Emigrante Retornado en este enlace.
-Solicitud del abono acumulado y anticipado para personas extranjeras no comunitarias.
-Solicitud de pago único de la prestación por desempleo.
-Solicitud ayuda suplementaria RAI para víctimas de violencia de género, sexual o doméstica.
-Solicitud de Renta Agraria para trabajadores eventuales agrarios en Andalucía y Extremadura.
-Solicitud de Subsidio agrícola para Trabajadores Eventuales del SEASS.
-Para la solicitud de prestación por desempleo, el trámite podrá completarse con el anexado de la documentación que se indica en el resguardo de solicitud que el sistema facilita al finalizar la gestión.
 
 Tu solicitud quedará registrada telemáticamente, lo que otorga validez a tu presentación como si ésta se hubiera efectuado de forma presencial. Para que este registro pueda efectuarse desde tu ordenador, es precisa la instalación de un componente adicional (ActiveX) y la configuración de tu navegador según se describe en las siguientes instrucciones: Configuración navegador (pdf - 632 KB).
 
@@ -90,10 +81,11 @@ Email:
 Hola, 
 "
 Benchmark.bm do |x|
-  x.report("answer") {
+  x.report("answer 2") {
     answer = openai.generate_answer(prompt)
+    p answer
   }
-  p answer
+  
 end
 
 # "text-davinci-003" 4.62
