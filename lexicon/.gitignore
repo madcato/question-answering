@@ -1,0 +1,6 @@
+*.txt
+*.bin
+*.json
+models/*
+*.input
+*.target

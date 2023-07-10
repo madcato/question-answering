@@ -1,0 +1,7 @@
+*.bin
+*.json
+models/*
+data/*
+translation.json
+wandb
+tst-translation
